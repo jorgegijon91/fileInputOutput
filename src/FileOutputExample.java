@@ -31,10 +31,14 @@ public class FileOutputExample {
     private static void printCharactersFromArray() {
         try (OutputStream fos = new FileOutputStream("archivo.txt")) {
 
-            String message = "Hello there!\n";
+            String message = "Hola\n" + "Adios Pepe, nos vemos luego";
             byte[] messageInBytes = message.getBytes();
 
-            fos.write(messageInBytes);
+
+            //Mostrar Hola y Pepe nada mas
+            fos.write(messageInBytes, 0, 5);
+            fos.write(messageInBytes, 11, 4);
+
         }
          catch (IOException e) {
             System.err.println("Error al leer el archivo");
